@@ -1,0 +1,20 @@
+- title: Getting Started
+  docs:
+    - link: /docs/index/
+    - link: /docs/asciiDoc-tests/
+- title: Build
+  docs:
+    - link: /docs/usage/
+    - link: /docs/configuration/
+- title: Content
+  docs:
+    - link: /docs/pages/
+    - link: /docs/posts/
+- title: Site Structure
+  docs:
+    - link: /docs/structure/
+- title: Guides
+  docs:
+    - link: /docs/migrations/
+    - link: /docs/upgrading/
+    - link: /docs/deployment/

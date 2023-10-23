@@ -1,0 +1,54 @@
+title: Jekyll AsciiDoc Template
+# url: "https://some.site.com"
+baseurl: /jekyll-asciidoc-quickstart 
+#repository: https://github.com/jekyll/jekyll
+version: 0.3.0
+#timezone: America/Los_Angeles
+#logo: "/img/logo-2x.png"
+description: The Jekyll AsciiDoc Quickstart project is a leg-up in starting your own website hosted on GitHub with content based in AsciiDoc.
+
+exclude:
+  - LICENSE.adoc
+  - README.adoc
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+
+asciidoc: {}
+asciidoctor:
+  base_dir: :docdir
+  safe: unsafe
+  attributes:
+    - idseparator=_
+    - source-highlighter=coderay
+    - icons=font
+
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
+  posts:
+    permalink: "/news/:year/:month/:day/:title/"
+    output: true
+defaults:
+- scope:
+    path: _docs
+    type: docs
+  values:
+    layout: docs
+- scope:
+    path: _posts
+    type: posts
+  values:
+    layout: news_item
+- scope:
+    path: ''
+  values:
+    image: "/img/jekyll-og.png"
+
+sass:
+    style: compressed
+    sass_dir: _sass
+
+footer_url: "https://www.insyde.group"
+footer_text: "INSYDE, SDG"
