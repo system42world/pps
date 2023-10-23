@@ -44,7 +44,7 @@ defaults:
 - scope:
     path: ''
   values:
-    image: "/img/jekyll-og.png"
+    image: "/assets/logo.png"
 
 sass:
     style: compressed

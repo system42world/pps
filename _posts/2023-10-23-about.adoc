@@ -1,34 +1,38 @@
-= Congratulations!
 :showtitle:
-:page-title: Jekyll AsciiDoc Quickstart
-:page-description: A forkable blog-ready Jekyll site using AsciiDoc
+:page-title: Introductions of Payment Processing System
+:page-description: Pre-release note for PPS version 0.3.0
 
-You've successfully set up and deployed an Jekyll website powered by AsciiDoc using the 
-https://github.com/asciidoctor/jekyll-asciidoc-quickstart[*Jekyll AsciiDoc Quickstart*] project. 
-If everything is in order then changes to the AsciiDoc content will be automatically published to your `gh_pages` branch and hosted via Jekyll and Github.
+== History
 
-== What do I do now?
+Around 2000 BCE, prototype banks gave loans to the first farmers and traders. The loan was the very first and the only bank service. Later, the family of services increased by deposits and the change of money operations. These days banks are much more complex businesses. They provide money transfer services, mortgages, card payments, and many more. All services end up in a payment transaction. The transaction processing procedure consists of numerous different steps. For instance, money transfer between clients of the same bank from the business perspective can consist of:
 
-Now that you've set up your website to run with AsciiDoc, you have a ton of options available to you.
+1. Verifying if the operation invoked by the authorized party
+2. Verifying if the debtor account is eligible for withdrawing
+3. Verifying if the debtor account has enough money to cover the transaction
+4. Verifying if the creditor account is eligible for receiving
+5. Verifying the transaction for fraud
+6. Changing the balance of the debtor account (the sending party)
+7. Changing the balance of the creditor account (the receiving party)
 
-=== Edit content
+The process is more complex from a technical perspective — countless calls between multiple software systems. While implementing the procedure, developers consider authorizations, retries, idempotency, rollbacks, and many others common for distributed systems.
 
-Editing content is very simple. The easiest way to update your site is to clone your repository, 
-fire up your favorite text editor and run the content locally. 
-To do this run the `jekyll serve` command and open a web browser to http://localhost:4000. 
-Jekyll will automatically process and host changes to the content. 
-Also make sure that your `Gemfile` is up-to-date with the current version of your gem sources, 
-e.g. with `gem list --local | grep "jekyll"`.
+Governments make the process even more difficult by regulating the industry and forcing banks to inject additional reporting and verification steps into the established procedure.
 
-You may also edit your content directly on Github. 
-To do this, navigate the browser the file you wish to edit, click the pensil (edit) button in 
-the upper right hand corner of the view and make your changes. When you're finished, commit your changes. 
-This will trigger Travis to generate and publish a new website including your changes.
+Banks create new types of transactions when introducing new services. They change a transaction to comply with internal changes of the enterprise or follow new regulations. After all, banks change particular steps to adjust low-level details such as credentials or API calls.
 
-=== Reference documentation
+Therefore, today’s banks require a sophisticated solution to:
 
-The following links will help with detailed explanations on Jekyll and AsciiDoc.
+- Make transaction processing procedure easy to change
+- Introduce new transaction processing procedures as easy as possible
+- Decouple transaction processing from the application business rules
 
-* http://jekyllrb.com[Jekyll]
-* http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Quick Reference]
-* http://asciidoctor.org[Asciidoctor]
+== The solution
+
+This is where the payment processing system (PPS) brings its value. 
+PPS is an engine and a framework to process payment transactions.
+The engine orchestrates transaction processing steps.
+It’s responsible for step invocation, retrying attempts in case of step failure, and rolling back the whole transaction. The framework enables software developers to implement transaction processing steps and compose them into a processing procedure called “Flow.”
+
+The PPS engine provides HTTPS API to post payment transactions or get transaction details. The API is intended for private usage inside the enterprise. Bank software that needs transaction processing capabilities invokes the PPS engine’s API to process the transaction.
+
+Readers familiar with Open Banking can consider the following example: PPS runs behind the Account Servicing Payment Service Provider (ASPSP) API. Payment Initiation Services Provider (PISP) negotiates payment consent and payment order with ASPSP API, and ASPSP sends the payment order to PPS for asynchronous processing.

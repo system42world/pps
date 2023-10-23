@@ -1,11 +1,10 @@
 - title: Getting Started
   docs:
     - link: /docs/intro/
-    - link: /docs/asciiDoc-tests/
 - title: Architecture
   docs:
-    - link: /docs/usage/
-    - link: /docs/configuration/
+    - link: /docs/concept/
+    - link: /docs/modules/
 - title: Instalation
   docs:
     - link: /docs/pages/
@@ -15,6 +14,6 @@
     - link: /docs/structure/
 - title: Guides
   docs:
-    - link: /docs/migrations/
+    - link: /docs/how-to-add-workflow/
     - link: /docs/upgrading/
     - link: /docs/deployment/
