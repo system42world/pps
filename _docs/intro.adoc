@@ -1,10 +1,10 @@
-# Introducing Payment Processing System
+= Introducing Payment Processing System
 
 Created: September 15, 2022 2:09 PM
 Created by: Tymur Yarosh
 Modified: March 15, 2023 11:44 PM
 
-**The problem**
+== The problem
 
 Around 2000 BCE, prototype banks gave loans to the first farmers and traders. The loan was the very first and the only bank service. Later, the family of services increased by deposits and the change of money operations. These days banks are much more complex businesses. They provide money transfer services, mortgages, card payments, and many more. All services end up in a payment transaction. The transaction processing procedure consists of numerous different steps. For instance, money transfer between clients of the same bank from the business perspective can consist of:
 
@@ -28,7 +28,7 @@ Therefore, today’s banks require a sophisticated solution to:
 - Introduce new transaction processing procedures as easy as possible
 - Decouple transaction processing from the application business rules
 
-**The solution**
+== The solution
 
 ![Architecture - C1.png](Introducing%20Payment%20Processing%20System%20769f17b409b64c9db1c77663d10c8a67/Architecture_-_C1.png)
 
