@@ -2,15 +2,15 @@
   docs:
     - link: /docs/index/
     - link: /docs/asciiDoc-tests/
-- title: Build
+- title: Architecture
   docs:
     - link: /docs/usage/
     - link: /docs/configuration/
-- title: Content
+- title: Instalation
   docs:
     - link: /docs/pages/
     - link: /docs/posts/
-- title: Site Structure
+- title: Administration
   docs:
     - link: /docs/structure/
 - title: Guides

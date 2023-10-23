@@ -1,11 +1,11 @@
 title: Jekyll AsciiDoc Template
-# url: "https://some.site.com"
-baseurl: /jekyll-asciidoc-quickstart 
+url: "https://pps.insyde.group"
+# baseurl: /jekyll-asciidoc-quickstart 
 #repository: https://github.com/jekyll/jekyll
 version: 0.3.0
 #timezone: America/Los_Angeles
 #logo: "/img/logo-2x.png"
-description: The Jekyll AsciiDoc Quickstart project is a leg-up in starting your own website hosted on GitHub with content based in AsciiDoc.
+description: Payment Processing System Documentations
 
 exclude:
   - LICENSE.adoc
