@@ -1,6 +1,6 @@
 - title: Getting Started
   docs:
-    - link: /docs/index/
+    - link: /docs/intro/
     - link: /docs/asciiDoc-tests/
 - title: Architecture
   docs:
