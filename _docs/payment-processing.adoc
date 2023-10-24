@@ -1,0 +1,51 @@
+:showtitile:
+:page-title: Payment Processing
+:page-description: PPS Sequence Diagrams
+:imagesdir: /assets/docs
+
+The processing of payment transactions consists of a few phases.
+
+== Transaction initiation
+
+image::Transaction-Initiation-Sequence.png[]
+
+PPS client (Bank Backend in this example) creates new transactions asynchronously. When PPS create a transaction, the PPS client receives a corresponding event.
+
+== Transaction execution if flow is not found
+
+image::Transaction-Processing-No-flow-Sequence.png[]
+
+During this phase, the engine orchestrates transaction execution according to its flow. Every flow has criteria for transactions it can be used with. If there is no appropriate flow for the given transaction, PPS rejects it with the reason "Flow not found".
+
+== Transaction execution if flow is found
+
+image::Transaction-Processing-Flow-exists-Sequence.png[]
+
+The flow consists of sequential flow steps. A flow step has:
+
+- user-defined id
+- the name of the step function
+- schema of the step function command
+- step function timeout (optional)
+- the name of the compensating step function (optional)
+- schema of the compensating step function command (optional)
+- compensating step function timeout (optional)
+- retry attempts limit (optional)
+- transaction status to set if the step was completed successfully (optional)
+- transaction status to set if the step was completed with an error (optional)
+
+It’s required for a step to complete successfully so that the engine can invoke the next one. Otherwise, the engine retries the failing step until the retry attempts limit is exhausted. If the step is still failing, the engine invokes compensating step functions of the failing step and successfully completed steps in reverse order.
+
+Having such comprehensive flow steps, you can quickly build a transaction-centric DAG that takes care of transaction processing, step retry attempts, transaction compensation, and status changes.
+
+= EXTENSION REGISTRATION
+
+image::Extension-Registration-Sequence.png[]
+
+Extensions implement step functions. A single flow can use step functions implemented by multiple extensions. When starting up, the extension registers itself in the Extension Manager. It announces a list of implemented step functions. The latter Extension Manager uses to proxy step function requests to the extension that implements the target function. Extension Manager is the engine’s entry point to call step functions. Since no static information describes available functions and their endpoints, extensions can register and deregister themselves dynamically without the engine’s downtime or reconfiguration.
+
+== QUERYING TRANSACTIONS
+
+image::Querying-Transactions-Sequence.png[]
+
+The engine provides API to query ongoing and past transactions, their status, error codes, and so on. The “read” API implements the **Transactions** service. Transaction Processor publishes transaction progress-related events that Transactions service reads to build a queryable state of particular payment transactions.

@@ -1,5 +1,5 @@
 :showtitle:
-:page-title: Payment Processing Architecture
+:page-title: Architecture
 :page-description: PPS Modules (C2)
 :imagesdir: /assets/docs
 

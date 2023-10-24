@@ -1,5 +1,5 @@
 :showtitle:
-:page-title: Payment Processing Concept
+:page-title: Concept
 :page-description: High-level architecture of Payment Processing System (C1)
 :imagesdir: /assets/docs
 

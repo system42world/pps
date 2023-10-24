@@ -1,13 +1,19 @@
 :showtitile:
-:page-title: Usage
+:page-title: Using Transactions Proccessing
 :page-description: PPS usage
 :imagesdir: /assets/docs
 
-== ENABLING TRANSACTION PROCESSING
+== Enabling Transaction Processing
 
-Out of the box, the engine rejects all kinds of transactions and uses the built-in status ”REJECTED” with the error code “EN_001” and the message “Flow not found”. Bank’s software developers control the engine’s behavior through the framework available in Java and Python. Developers’ friendly code-only approach to enabling the processing of different kinds of transactions provides the ability to store everything in VCS and reproduce the same behavior in multiple environments. Developers control the engine via building custom **flows** and implement **step functions** in custom extensions. See the developer’s guide for more information and examples.
+Out of the box, the engine rejects all kinds of transactions and uses the built-in status ”REJECTED” 
+with the error code “EN_001” and the message “Flow not found”. 
+Bank’s software developers control the engine’s behavior through the framework available in Java and Python. 
+Developers’ friendly code-only approach to enabling the processing of different kinds of transactions provides the 
+ability to store everything in VCS and reproduce the same behavior in multiple environments. 
+Developers control the engine via building custom **flows** and implement **step functions** in custom extensions. 
+See the developer’s guide for more information and examples.
 
-== RUNNING THE ENGINE
+== Running the engine
 
 The engine is powered by stateful and stateless components. The stateful are MongoDB, Kafka, Flink, and Minio. See official guides to know how to manage them and troubleshoot. The stateless components are Transactions, API Gateway, Kafka REST Proxy, Transaction Processor, Business Operator API, Extension Manager, and the Web Application for the Business Operator Web UI.
 
