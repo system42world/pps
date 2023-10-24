@@ -10,13 +10,9 @@
     - link: /docs/deployment/
 - title: Installation
   docs:
-    - link: /docs/pages/
     - link: /docs/posts/
 - title: Administration
   docs:
     - link: /docs/transaction-processing/
 - title: Guides
   docs:
-    - link: /docs/how-to-add-workflow/
-    - link: /docs/upgrading/
-    - link: /docs/deployment/
