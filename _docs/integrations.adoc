@@ -1,0 +1,10 @@
+:showtitle:
+:page-title: Integrations Strategies
+:page-description: PSS Integration Level 
+:imagesdir: /assets/docs
+
+image::Integrations.png[]
+
+1. Facade Module
+2. Dirrect call (api)
+3. Proxy Module

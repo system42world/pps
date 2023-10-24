@@ -11,5 +11,6 @@
 - title: Administration
   docs:
     - link: /docs/transaction-processing/
+    - link: /docs/integrations/
 - title: Guides
   docs:
