@@ -5,9 +5,9 @@
 
 image::Architecture-C2.png[Modules and Components]
 
-== ARCHITECTURE CHARACTERISTICS
+Due to its nature design of the system is guided by critical quality attributes for the banking industry.
 
-*Securability*
+== Securability
 
 - API Gateway integrates with the IdP of the enterprise to authorize requests to the engine.
 - Flink ingests commands via Kafka cluster that utilizes built-in security
@@ -15,13 +15,13 @@ image::Architecture-C2.png[Modules and Components]
 - Extension Manager adds an access token to outgoing calls
 - Network connections are protected via TLS
 
-*Reliability & Availability*
+== Reliability & Availability
 
 - The engine continues to accept payment initiation requests for further processing even if Flink is unavailable
 - If Transaction Processor, Extension Manager, or any extension is unavailable, Stateful Functions runtime retries requests until success
 - If Transactions service is not available, it does not miss any progress events due to PubSub between Flink and itself
 
-*Interoperability*
+== Interoperability
 
 - The engine provides API over HTTPS to initiate a payment transaction or query transaction data
 - The engine provides API over HTTPS for extension self-registration
@@ -29,7 +29,7 @@ image::Architecture-C2.png[Modules and Components]
 - Engine APIs preserve backward compatibility
 - It’s possible to provide OpenBanking or ISO 20022 compatible APIs as well as any other API via custom adapters for the engine API
 
-*Observability*
+== Observability
 
 - All components have health metrics available for the bank operators and injectable into an enterprise-wide dashboard
 - All components support structured logging and redirect logs into central log management solutions

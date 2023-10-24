@@ -38,13 +38,13 @@ It’s required for a step to complete successfully so that the engine can invok
 
 Having such comprehensive flow steps, you can quickly build a transaction-centric DAG that takes care of transaction processing, step retry attempts, transaction compensation, and status changes.
 
-= EXTENSION REGISTRATION
+= Extention Registration
 
 image::Extension-Registration-Sequence.png[]
 
 Extensions implement step functions. A single flow can use step functions implemented by multiple extensions. When starting up, the extension registers itself in the Extension Manager. It announces a list of implemented step functions. The latter Extension Manager uses to proxy step function requests to the extension that implements the target function. Extension Manager is the engine’s entry point to call step functions. Since no static information describes available functions and their endpoints, extensions can register and deregister themselves dynamically without the engine’s downtime or reconfiguration.
 
-== QUERYING TRANSACTIONS
+== Quering Transactions
 
 image::Querying-Transactions-Sequence.png[]
 
