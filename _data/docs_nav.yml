@@ -1,17 +1,20 @@
 - title: Getting Started
   docs:
     - link: /docs/intro/
+    - link: /docs/glossary/
 - title: Architecture
   docs:
-    - link: /docs/concept/
-    - link: /docs/modules/
-- title: Instalation
+    - link: /docs/architecture/
+    - link: /docs/payment-processing
+    - link: /docs/deployment/
+- title: Installation
   docs:
     - link: /docs/pages/
     - link: /docs/posts/
 - title: Administration
   docs:
-    - link: /docs/structure/
+    - link: /docs/access-and-databases/
+      link: /docs/
 - title: Guides
   docs:
     - link: /docs/how-to-add-workflow/

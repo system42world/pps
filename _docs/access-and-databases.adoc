@@ -1,0 +1,18 @@
+:showtitile:
+:page-title: Accesses and Databases
+:page-description: PPS percisstane storage
+:imagesdir: /assets/docs
+
+*MongoDB*
+
+**Transactions** and **Extension Manager** use MongoDB to carry their data. It’s “transactions” and “extension-manager” databases.
+
+*Kafka***API Gateway** produces messages to the “processor-commands” and “engine-events” topics and consumes messages from the “processor-events” topic.
+
+**Transactions** consumes messages from the “processor-events” topic.
+
+**Flink TaskManager** consumes messages from the “processor-commands” topic and produces messages to the “processor-events” topic.
+
+*Minio*
+
+**Flink TaskManager** and **Flink Master** both have read-write access to the “flink-:wcheckpointscheckpoints” and “flink-savepoints” buckets

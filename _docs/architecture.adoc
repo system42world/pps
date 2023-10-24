@@ -1,0 +1,36 @@
+:showtitle:
+:page-title: Payment Processing Architecture
+:page-description: PPS Modules (C2)
+:imagesdir: /assets/docs
+
+image::Architecture-C2.png[Modules and Components]
+
+== ARCHITECTURE CHARACTERISTICS
+
+*Securability*
+
+- API Gateway integrates with the IdP of the enterprise to authorize requests to the engine.
+- Flink ingests commands via Kafka cluster that utilizes built-in security
+- Extensions protect their endpoints via OpenID
+- Extension Manager adds an access token to outgoing calls
+- Network connections are protected via TLS
+
+*Reliability & Availability*
+
+- The engine continues to accept payment initiation requests for further processing even if Flink is unavailable
+- If Transaction Processor, Extension Manager, or any extension is unavailable, Stateful Functions runtime retries requests until success
+- If Transactions service is not available, it does not miss any progress events due to PubSub between Flink and itself
+
+*Interoperability*
+
+- The engine provides API over HTTPS to initiate a payment transaction or query transaction data
+- The engine provides API over HTTPS for extension self-registration
+- Engine APIs published as OpenAPI documents
+- Engine APIs preserve backward compatibility
+- It’s possible to provide OpenBanking or ISO 20022 compatible APIs as well as any other API via custom adapters for the engine API
+
+*Observability*
+
+- All components have health metrics available for the bank operators and injectable into an enterprise-wide dashboard
+- All components support structured logging and redirect logs into central log management solutions
+- Transaction statuses and error codes are observable via a Business Operator Web UI

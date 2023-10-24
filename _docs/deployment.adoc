@@ -1,0 +1,10 @@
+:showtitle: 
+:page-title: Deployment: Kubernetes 
+:page-description: Deployment to Kubernetes 
+:imagesdir: /assets/docs
+
+**Deployment**
+
+image::Architecture-Deployment.png[Deployment]
+
+The engine is designed for being deployed on Kubernetes.

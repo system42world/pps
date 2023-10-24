@@ -1,0 +1,20 @@
+:showtitile:
+:page-title: Glossary
+:page-description: Payment Processing Engine Glossary
+:imagesdir: /assets/docs
+
+*Transaction* - Transaction payment transaction that contains data required for money transfer.
+
+*Flow* — step-by-step description of the procedure required to process the transaction.
+
+*Flow Selector* — criteria that a transaction must meet to apply a particular flow.
+
+*Flow Step* — a part of the transaction processing procedure that advances progress.
+
+*Extension* — bank software that implements step functions.
+
+*Step Function* — Stateful Function that implements the step.
+
+*Step Function Command* — Command that the engine sends to the step function.
+
+*Step Function Result* — Message that the step function sends to the engine as a response to the command after command execution is completed or failed
