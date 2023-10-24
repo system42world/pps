@@ -2,15 +2,12 @@
   docs:
     - link: /docs/intro/
     - link: /docs/glossary/
-    - link: /docs/payment-processing/
 - title: Architecture
   docs:
     - link: /docs/architecture/
+    - link: /docs/payment-processing/
     - link: /docs/access-and-databases/
     - link: /docs/deployment/
-- title: Installation
-  docs:
-    - link: /docs/posts/
 - title: Administration
   docs:
     - link: /docs/transaction-processing/
