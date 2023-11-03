@@ -3,20 +3,25 @@
 :page-description: High-level architecture of Payment Processing System (C1)
 :imagesdir: /assets/docs
 
-image::Architecture-C1.png[Context Diagram]
+The Payment Processing System (PPS) is an engine and a framework to 
+provide API for Mobile banking and process payment transactions between 
+individuals, banks, and organizations.
 
-The Payment Procesing System (PPS) is an engine and a framework to process payment transactions. 
-The engine orchestrates transaction processing steps. 
-It’s responsible for: 
+In this case, the _transaction_ capabilities are one of cornerstones behind system design and 
+can represented like this:
 
 * step invocation, 
 * retrying attempts in case of step failure, 
 * and rolling back the whole transaction. 
 
+image::Architecture-C1.png[Context Diagram]
+
 == Flow 
 
 The framework enables software developers to implement transaction processing 
 steps and compose them into a processing procedure called “Flow.”
+
+image::PPS.png[PPS Flow]
 
 1. The PPS engine provides HTTPS API to post payment transactions or get transaction details. 
 2. The API is intended for private usage inside the enterprise. 
@@ -27,4 +32,8 @@ Readers familiar with Open Banking can consider the following example:
 
 1. PPS runs behind the Account Servicing Payment Service Provider (ASPSP) API. 
 2. Payment Initiation Services Provider (PISP) negotiates payment consent and payment order with ASPSP API
-3. ASPSP sends the payment order to PPS for asynchronous processing.:whole
+3. ASPSP sends the payment order to PPS for asynchronous processing.
+
+== Demo
+
+video::NIbQQ7x-uKI[youtube]
