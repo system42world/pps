@@ -36,4 +36,4 @@ Readers familiar with Open Banking can consider the following example:
 
 == Demo
 
-video::NIbQQ7x-uKI[youtube]
+video::c62ihnrABts[youtube]
