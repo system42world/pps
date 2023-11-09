@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link type="application/atom+xml" rel="alternate" href="/feed/release.xml" title="Jekyll releases posts" />
+  <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/4insyde/commits/master.atom">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/main.css" as="style">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="wrap"><header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/assets/square2.png" width="96" height="96" alt="Company Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/docs/intro/">Docs</a></li>
+  <li class="current"><a href="/news/">News</a></li>
+  </ul>
+</nav>
+    <div class="search hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+      <ul>
+        <li><a href="https://github.com/4insyde/releases/tag/v0.3.0">v0.3.0</a></li>
+        <li><a href="https://github.com/4insyde">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li><a href="/">Home</a></li>
+    <li><a href="/docs/intro/">Docs</a></li>
+    <li class="current" ><a href="/news/">News</a></li>
+    <li><a href="https://github.com/4insyde">GitHub</a></li>
+</ul>
+</nav>
+</header>
+<section class="news">
+  <div class="grid">
+    <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the blog…</option>
+    <option value="/news/">Home</option>
+    <optgroup label="posts">
+      <option value="/news/2023/10/23/about/">Introductions of Payment Processing System</option>
+      </optgroup>
+  </select>
+</div>
+<div class="unit four-fifths"><article>
+  <h2>
+    Introductions of Payment Processing System
+    <a href="/news/2023/10/23/about/" class="header-link" title="Permalink">
+      <span class="sr-only">Permalink</span>
+      <i class="fa fa-link"></i>
+    </a>
+  </h2>
+  <span class="post-category">
+    <span class="label"></span>
+  </span>
+  <div class="post-meta">
+    <span class="post-date">23 Oct 2023</span>
+    <a href="https://github.com/" class="post-author">
+      <span class="author-name"></span>
+    </a>
+  </div>
+  <div class="post-content">
+    <div class="sect1">
+<h2 id="history">History</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Around 2000 BCE, prototype banks gave loans to the first farmers and traders. The loan was the very first and the only bank service. Later, the family of services increased by deposits and the change of money operations. These days banks are much more complex businesses. They provide money transfer services, mortgages, card payments, and many more. All services end up in a payment transaction. The transaction processing procedure consists of numerous different steps. For instance, money transfer between clients of the same bank from the business perspective can consist of:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Verifying if the operation invoked by the authorized party</p>
+</li>
+<li>
+<p>Verifying if the debtor account is eligible for withdrawing</p>
+</li>
+<li>
+<p>Verifying if the debtor account has enough money to cover the transaction</p>
+</li>
+<li>
+<p>Verifying if the creditor account is eligible for receiving</p>
+</li>
+<li>
+<p>Verifying the transaction for fraud</p>
+</li>
+<li>
+<p>Changing the balance of the debtor account (the sending party)</p>
+</li>
+<li>
+<p>Changing the balance of the creditor account (the receiving party)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The process is more complex from a technical perspective — countless calls between multiple software systems. While implementing the procedure, developers consider authorizations, retries, idempotency, rollbacks, and many others common for distributed systems.</p>
+</div>
+<div class="paragraph">
+<p>Governments make the process even more difficult by regulating the industry and forcing banks to inject additional reporting and verification steps into the established procedure.</p>
+</div>
+<div class="paragraph">
+<p>Banks create new types of transactions when introducing new services. They change a transaction to comply with internal changes of the enterprise or follow new regulations. After all, banks change particular steps to adjust low-level details such as credentials or API calls.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, today’s banks require a sophisticated solution to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Make transaction processing procedure easy to change</p>
+</li>
+<li>
+<p>Introduce new transaction processing procedures as easy as possible</p>
+</li>
+<li>
+<p>Decouple transaction processing from the application business rules</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="the_solution">The solution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is where the payment processing system (PPS) brings its value.
+PPS is an engine and a framework to process payment transactions.
+The engine orchestrates transaction processing steps.
+It’s responsible for step invocation, retrying attempts in case of step failure, and rolling back the whole transaction. The framework enables software developers to implement transaction processing steps and compose them into a processing procedure called “Flow.”</p>
+</div>
+<div class="paragraph">
+<p>The PPS engine provides HTTPS API to post payment transactions or get transaction details. The API is intended for private usage inside the enterprise. Bank software that needs transaction processing capabilities invokes the PPS engine’s API to process the transaction.</p>
+</div>
+<div class="paragraph">
+<p>Readers familiar with Open Banking can consider the following example: PPS runs behind the Account Servicing Payment Service Provider (ASPSP) API. Payment Initiation Services Provider (PISP) negotiates payment consent and payment order with ASPSP API, and ASPSP sends the payment order to PPS for asynchronous processing.</p>
+</div>
+</div>
+</div>
+  </div>
+</article>
+</div>
+    <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <ul>
+      <li>
+        <a href="/news/">All News</a>
+      </li>
+      <li>
+        <a href="/news/releases/">Releases</a>
+      </li>
+    </ul>
+    <h4>Recent Releases</h4>
+    <ul>
+      <li>
+        <a href="/docs/history/">History »</a>
+      </li>
+    </ul>
+    <h4>Other News</h4>
+    <ul>
+    <li class="current">
+        <a href="/news/2023/10/23/about/">Introductions of Payment Processing System</a>
+      </li>
+      </ul>
+  </aside>
+</div>
+<div class="clear"></div>
+  </div>
+</section>
+<footer>
+      <p>
+        <hr />
+          <p style="text-align: center; margin-bottom: 10px">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+          <img alt="Creative Commons License" style="border-width:0;width:auto" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/>
+          </a><br />
+              <small>
+              Except where otherwise noted, content on this site is licensed under a 
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+              </small>
+          </a>.
+          <br />
+          <small> Created by <a href="https://www.insyde.group">INSYDE, SDG</small></a>
+          </p>
+      </p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link type="application/atom+xml" rel="alternate" href="/feed/release.xml" title="Jekyll releases posts" />
+  <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/4insyde/commits/master.atom">
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/main.css" as="style">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="wrap"><header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/assets/square2.png" width="96" height="96" alt="Company Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/docs/intro/">Docs</a></li>
+  <li><a href="/news/">News</a></li>
+  </ul>
+</nav>
+    <div class="search hide-on-mobiles">
+    </div>
+    <div class="meta hide-on-mobiles">
+      <ul>
+        <li><a href="https://github.com/4insyde/releases/tag/v0.3.0">v0.3.0</a></li>
+        <li><a href="https://github.com/4insyde">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li><a href="/">Home</a></li>
+    <li><a href="/docs/intro/">Docs</a></li>
+    <li><a href="/news/">News</a></li>
+    <li><a href="https://github.com/4insyde">GitHub</a></li>
+</ul>
+</nav>
+</header>
+<section class="docs">
+  <div class="grid">
+    <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the docs…</option>
+    <optgroup label="Getting Started">
+      <option value="/docs/intro/">Concept</option>
+      <option value="/docs/glossary/">Glossary</option>
+    </optgroup>
+    <optgroup label="Architecture">
+      <option value="/docs/architecture/">Architecture</option>
+      <option value="/docs/payment-processing/">Payment Processing</option>
+      <option value="/docs/access-and-databases/">Accesses and Databases</option>
+      <option value="/docs/deployment/">Deployment: Kubernetes</option>
+    </optgroup>
+    <optgroup label="Administration">
+      <option value="/docs/transaction-processing/">Using Transactions Proccessing</option>
+      <option value="/docs/integrations/">Integrations Strategies</option>
+    </optgroup>
+    <optgroup label="Guides">
+    </optgroup>
+    </select>
+</div>
+<div class="unit four-fifths">
+      <article>
+        <div class="improve right hide-on-mobiles">
+          <a data-proofer-ignore href="/docs/_docs/architecture.adoc | relative_url"><i
+             class="fa fa-pencil"></i> &nbsp;Improve this page</a>
+        </div>
+        <h1>Architecture</h1>
+        <div class="imageblock">
+<div class="content">
+<img src="/assets/docs/Architecture-C2.png" alt="Modules and Components">
+</div>
+</div>
+<div class="paragraph">
+<p>Due to its nature design of the system is guided by critical quality attributes for the banking industry.</p>
+</div>
+<div class="sect1">
+<h2 id="securability">Securability</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>API Gateway integrates with the IdP of the enterprise to authorize requests to the engine.</p>
+</li>
+<li>
+<p>Flink ingests commands via Kafka cluster that utilizes built-in security</p>
+</li>
+<li>
+<p>Extensions protect their endpoints via OpenID</p>
+</li>
+<li>
+<p>Extension Manager adds an access token to outgoing calls</p>
+</li>
+<li>
+<p>Network connections are protected via TLS</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reliability_availability">Reliability &amp; Availability</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The engine continues to accept payment initiation requests for further processing even if Flink is unavailable</p>
+</li>
+<li>
+<p>If Transaction Processor, Extension Manager, or any extension is unavailable, Stateful Functions runtime retries requests until success</p>
+</li>
+<li>
+<p>If Transactions service is not available, it does not miss any progress events due to PubSub between Flink and itself</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="interoperability">Interoperability</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The engine provides API over HTTPS to initiate a payment transaction or query transaction data</p>
+</li>
+<li>
+<p>The engine provides API over HTTPS for extension self-registration</p>
+</li>
+<li>
+<p>Engine APIs published as OpenAPI documents</p>
+</li>
+<li>
+<p>Engine APIs preserve backward compatibility</p>
+</li>
+<li>
+<p>It’s possible to provide OpenBanking or ISO 20022 compatible APIs as well as any other API via custom adapters for the engine API</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="observability">Observability</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>All components have health metrics available for the bank operators and injectable into an enterprise-wide dashboard</p>
+</li>
+<li>
+<p>All components support structured logging and redirect logs into central log management solutions</p>
+</li>
+<li>
+<p>Transaction statuses and error codes are observable via a Business Operator Web UI</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+      </article>
+    </div>
+    <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <h4>Getting Started</h4>
+      <ul>
+        <li><a href="/docs/intro/">Concept</a></li>
+        <li><a href="/docs/glossary/">Glossary</a></li>
+      </ul>
+    <h4>Architecture</h4>
+      <ul>
+        <li class="current"><a href="/docs/architecture/">Architecture</a></li>
+        <li><a href="/docs/payment-processing/">Payment Processing</a></li>
+        <li><a href="/docs/access-and-databases/">Accesses and Databases</a></li>
+        <li><a href="/docs/deployment/">Deployment: Kubernetes</a></li>
+      </ul>
+    <h4>Administration</h4>
+      <ul>
+        <li><a href="/docs/transaction-processing/">Using Transactions Proccessing</a></li>
+        <li><a href="/docs/integrations/">Integrations Strategies</a></li>
+      </ul>
+    <h4>Guides</h4>
+      <ul>
+      </ul>
+    </aside>
+</div>
+<div class="clear"></div>
+  </div>
+</section>
+<footer>
+      <p>
+        <hr />
+          <p style="text-align: center; margin-bottom: 10px">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+          <img alt="Creative Commons License" style="border-width:0;width:auto" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/>
+          </a><br />
+              <small>
+              Except where otherwise noted, content on this site is licensed under a 
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+              </small>
+          </a>.
+          <br />
+          <small> Created by <a href="https://www.insyde.group">INSYDE, SDG</small></a>
+          </p>
+      </p>
+</footer>
+</body>
+</html>
